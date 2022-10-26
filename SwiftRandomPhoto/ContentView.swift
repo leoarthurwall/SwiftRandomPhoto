@@ -15,6 +15,14 @@ class ViewModel: ObservableObject {
     else {
         return
     }
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                guard let uiImage = uiImage(data: data) else { return }
+            }
+            self.image = Image(uiImage: <#T##UIImage#>)
+        }
 }
 
 
