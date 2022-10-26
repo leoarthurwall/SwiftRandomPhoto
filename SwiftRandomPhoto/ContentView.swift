@@ -41,15 +41,21 @@ struct ContentView: View {
             VStack {
                 Spacer()
 
+                if let image = viewModel.image {
+                    image
+                        .resizable()
+                        .foregroundColor(.blue)
+                        .frame(width: 300, height: 300)
+                } else {
                 Image(systemName: "photo")
                     .resizable()
                     .foregroundColor(.blue)
                     .frame(width: 300, height: 300)
-                
+                }
                 Spacer()
                 
                 Button(action: {
-                    viewModel.fetchNewImage()   
+                    viewModel.fetchNewImage()
                 }, label: {
                     Text("New Image!")
                         .bold()
