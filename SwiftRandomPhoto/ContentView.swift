@@ -14,22 +14,17 @@ struct ContentView: View {
     
     
     var body: some View {
-        ZStack {
-                    Color.purple
-                        .ignoresSafeArea()
-        Text("Hello, Random Photo App!")
-            .padding()
+        NavigationView {
+            VStack {
+                
+            }
+            .navigationTitle("Random iPhoto")
         }
-        Image("")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 250.0, height: 250.0, alignment: .center)
-            .clipShape(Circle())
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
 }
