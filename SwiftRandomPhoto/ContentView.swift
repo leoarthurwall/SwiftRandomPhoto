@@ -19,10 +19,13 @@ class ViewModel: ObservableObject {
             guard let data = data else { return }
             
             DispatchQueue.main.async {
-                guard let uiImage = UIImage(data: data) else { return }
+                guard let uiImage = UIImage(data: data) else {
+                    return
+                }
                 self.image = Image(uiImage: uiImage)
-
             }
+            }
+            task.resume()
         }
 }
 
@@ -31,7 +34,7 @@ class ViewModel: ObservableObject {
 
 
 struct ContentView: View {
-    
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         NavigationView {
@@ -68,3 +71,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 }
+
