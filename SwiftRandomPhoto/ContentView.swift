@@ -16,7 +16,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
+                Image(systemName: "photo")
+                    .resizable()
+                    .foregroundColor(.blue)
+                    .frame(width: 300, height: 300)
             }
             .navigationTitle("Random iPhoto")
         }
