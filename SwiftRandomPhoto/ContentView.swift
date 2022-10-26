@@ -49,7 +49,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button(action: {
-                    //do something
+                    viewModel.fetchNewImage()   
                 }, label: {
                     Text("New Image!")
                         .bold()
