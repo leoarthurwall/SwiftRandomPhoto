@@ -19,9 +19,10 @@ class ViewModel: ObservableObject {
             guard let data = data else { return }
             
             DispatchQueue.main.async {
-                guard let uiImage = uiImage(data: data) else { return }
+                guard let uiImage = UIImage(data: data) else { return }
+                self.image = Image(uiImage: uiImage)
+
             }
-            self.image = Image(uiImage: <#T##UIImage#>)
         }
 }
 
