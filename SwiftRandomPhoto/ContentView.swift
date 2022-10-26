@@ -20,6 +20,17 @@ struct ContentView: View {
                     .resizable()
                     .foregroundColor(.blue)
                     .frame(width: 300, height: 300)
+                
+                Button(action: {
+                    //do something
+                }, label: {
+                    Text("New Image!")
+                        .bold()
+                        .frame(width: 250, height: 40)
+                        .foregroundColor(.white)
+                        .background(.blue)
+                        .cornerRadius(8)
+                })
             }
             .navigationTitle("Random iPhoto")
         }
