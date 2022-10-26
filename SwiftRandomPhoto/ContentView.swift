@@ -7,7 +7,18 @@
 
 import SwiftUI
 
-//https://random.imagecdn.app/500/500
+class ViewModel: ObservableObject {
+    @Published var image: Image?
+    
+    func fetchNewImage() {
+        guard let url = URL (string: "https://random.imagecdn.app/500/500")
+    else {
+        return
+    }
+}
+
+
+
 
 
 struct ContentView: View {
