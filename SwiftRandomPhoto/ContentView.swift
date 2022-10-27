@@ -59,10 +59,16 @@ struct ContentView: View {
             ZStack {
                 Color(colors[7]).ignoresSafeArea()
                 VStack {
-                    Text("Random iPhoto")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.white)
+                    HStack {
+                        Image(systemName: "camera.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(Color.white)
+                        Text("Random iPhoto")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                    }
+                    
                     Spacer()
                     ZStack {
                         
