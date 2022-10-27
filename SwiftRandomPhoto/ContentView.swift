@@ -29,6 +29,13 @@ class ViewModel: ObservableObject {
         }
 }
 
+class RandColor: ObservableObject {
+    @Published var color: Color?
+    
+    func colorSelector() {
+        
+    }
+}
 
 
 
@@ -36,7 +43,7 @@ class ViewModel: ObservableObject {
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
     
-    let colors: [UIColor] = [
+   let colors: [UIColor] = [
         .systemPink,
         .systemRed,
         .green,
@@ -50,8 +57,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(colors[4]).ignoresSafeArea()
+                Color(colors[7]).ignoresSafeArea()
                 VStack {
+                    Text("Random iPhoto")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
                     Spacer()
 
                     if let image = viewModel.image {
@@ -69,6 +80,7 @@ struct ContentView: View {
                     
                     Button(action: {
                         viewModel.fetchNewImage()
+                        
                     }, label: {
                         Text("New Image!")
                             .bold()
@@ -81,9 +93,7 @@ struct ContentView: View {
 
                 }
             }
-            
-            .navigationTitle("Random iPhoto")
-        }
+                    }
 }
 
 struct ContentView_Previews: PreviewProvider {
