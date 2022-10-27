@@ -64,18 +64,31 @@ struct ContentView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                     Spacer()
+                    ZStack {
+                        
+                        ContainerRelativeShape()
+                            .frame(width: 350, height: 350)
+                            .cornerRadius(25)
+                            .foregroundColor(.white)
 
-                    if let image = viewModel.image {
-                        image
+                        
+                        if let image = viewModel.image {
+                            image
+                                .resizable()
+                                .foregroundColor(.blue)
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(25)
+
+                        } else {
+                        Image(systemName: "photo")
                             .resizable()
-                            .foregroundColor(.blue)
+                            .foregroundColor(.teal)
                             .frame(width: 300, height: 300)
-                    } else {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .foregroundColor(.white)
-                        .frame(width: 300, height: 300)
+                            
+                        }
                     }
+
+                  
                     Spacer()
                     
                     Button(action: {
