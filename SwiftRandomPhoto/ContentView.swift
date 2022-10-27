@@ -36,37 +36,50 @@ class ViewModel: ObservableObject {
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
     
+    let colors: [UIColor] = [
+        .systemPink,
+        .systemRed,
+        .systemBlue,
+        .systemGray,
+        .systemMint,
+        .systemTeal,
+    ]
+    
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
+            ZStack {
+                Color.pink.ignoresSafeArea()
+                VStack {
+                    Spacer()
 
-                if let image = viewModel.image {
-                    image
+                    if let image = viewModel.image {
+                        image
+                            .resizable()
+                            .foregroundColor(.blue)
+                            .frame(width: 300, height: 300)
+                    } else {
+                    Image(systemName: "photo")
                         .resizable()
                         .foregroundColor(.blue)
                         .frame(width: 300, height: 300)
-                } else {
-                Image(systemName: "photo")
-                    .resizable()
-                    .foregroundColor(.blue)
-                    .frame(width: 300, height: 300)
-                }
-                Spacer()
-                
-                Button(action: {
-                    viewModel.fetchNewImage()
-                }, label: {
-                    Text("New Image!")
-                        .bold()
-                        .frame(width: 250, height: 50)
-                        .foregroundColor(.white)
-                        .background(.blue)
-                        .cornerRadius(8)
-                })
-                Spacer()
+                    }
+                    Spacer()
+                    
+                    Button(action: {
+                        viewModel.fetchNewImage()
+                    }, label: {
+                        Text("New Image!")
+                            .bold()
+                            .frame(width: 250, height: 50)
+                            .foregroundColor(.white)
+                            .background(.blue)
+                            .cornerRadius(8)
+                    })
+                    Spacer()
 
+                }
             }
+            
             .navigationTitle("Random iPhoto")
         }
 }
