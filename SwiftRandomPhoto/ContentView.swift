@@ -39,7 +39,9 @@ struct ContentView: View {
     let colors: [UIColor] = [
         .systemPink,
         .systemRed,
-        .systemBlue,
+        .green,
+        .orange,
+        .purple,
         .systemGray,
         .systemMint,
         .systemTeal,
@@ -48,7 +50,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.pink.ignoresSafeArea()
+                Color(colors[4]).ignoresSafeArea()
                 VStack {
                     Spacer()
 
@@ -60,7 +62,7 @@ struct ContentView: View {
                     } else {
                     Image(systemName: "photo")
                         .resizable()
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
                         .frame(width: 300, height: 300)
                     }
                     Spacer()
@@ -71,8 +73,8 @@ struct ContentView: View {
                         Text("New Image!")
                             .bold()
                             .frame(width: 250, height: 50)
-                            .foregroundColor(.white)
-                            .background(.blue)
+                            .foregroundColor(.gray)
+                            .background(.white )
                             .cornerRadius(8)
                     })
                     Spacer()
